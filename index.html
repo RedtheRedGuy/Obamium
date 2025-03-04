@@ -18,8 +18,8 @@
       perspective: 800px;
       transform-style: preserve-3d;
       position: relative;
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
     }
 
     .pyramid {
@@ -28,45 +28,57 @@
       left: 50%;
       transform: translate(-50%, -50%) rotateX(-30deg) rotateY(45deg);
       transform-style: preserve-3d;
-      width: 150px;
-      height: 150px;
+      width: 100px;
+      height: 100px;
       animation: spin 3s infinite linear;
     }
 
     .face {
       position: absolute;
-      width: 150px;
-      height: 150px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      transform-origin: bottom;
       background-size: cover;
       background-position: center;
-      transform-origin: bottom;
     }
 
-    /* Base of the pyramid */
+    /* Base of the pyramid (square) */
     .base {
-      transform: rotateX(90deg) translateZ(75px);
-      background-image: url('');
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: gray;
+      transform: rotateX(90deg) translateZ(-50px);
     }
 
-    /* Four triangular faces */
+    /* Four triangular faces with images */
     .front {
-      transform: rotateY(0deg) translateZ(75px) rotateX(30deg);
+      border-width: 50px 50px 0 50px;
+      border-color: transparent transparent transparent transparent;
       background-image: url('tile001.png');
+      transform: rotateY(0deg) translateZ(50px);
     }
 
     .back {
-      transform: rotateY(180deg) translateZ(75px) rotateX(30deg);
+      border-width: 50px 50px 0 50px;
+      border-color: transparent transparent transparent transparent;
       background-image: url('tile005.png');
+      transform: rotateY(180deg) translateZ(50px);
     }
 
     .left {
-      transform: rotateY(-90deg) translateZ(75px) rotateX(30deg);
+      border-width: 50px 50px 0 50px;
+      border-color: transparent transparent transparent transparent;
       background-image: url('tile006.png');
+      transform: rotateY(-90deg) translateZ(50px);
     }
 
     .right {
-      transform: rotateY(90deg) translateZ(75px) rotateX(30deg);
+      border-width: 50px 50px 0 50px;
+      border-color: transparent transparent transparent transparent;
       background-image: url('tile004.png');
+      transform: rotateY(90deg) translateZ(50px);
     }
 
     /* Spinning animation */
@@ -90,18 +102,19 @@
     }
 
   </style>
-  <title>Obamium</title>
+  <title>Obamium Pyramid</title>
 </head>
 <body>
   <div class="pyramid-container">
-    <div class="pyramid"></div>
+    <div class="pyramid">
       <div class="face base"></div>
-        <div class="face front"></div>
-        <div class="face back"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+    </div>
   </div>
-</div>
+
   <!-- Speed Slider -->
   <div class="slider-container">
     <label for="speedSlider">Speed: <span id="speedValue">1</span>x</label>
